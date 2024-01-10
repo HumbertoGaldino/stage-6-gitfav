@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Favorites</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Github Favorites</h1>
+        <div class="search">
+          <label for="input-search">Usuário do Github</label>
+          <input
+            id="input-search"
+            type="text"
+            placeholder="Usuário do Github"
+          />
+          <button>&plus;</button>
+        </div>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Repositório</th>
+            <th>Seguidores</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <img
+                src="https://github.com/HumbertoGaldino.png"
+                alt="Imagem de HumbertoGaldino"
+              />
+              <a
+                href="https://github.com/HumbertoGaldino"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p>Humberto Galdino</p>
+                <span>HumbertoGaldino</span>
+              </a>
+            </td>
+            <td class="repositories">60</td>
+            <td class="followers">47</td>
+            <td>
+              <button>&times;</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <img src="https://github.com/diego3g.png" alt="Imagem de Diego" />
+              <a
+                href="https://github.com/diego3g"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p>Diego Fernandes</p>
+                <span>diego3g</span>
+              </a>
+            </td>
+            <td class="repositories">48</td>
+            <td class="followers">22503</td>
+            <td>
+              <button>&times;</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot></tfoot>
+      </table>
+    </div>
+  </body>
+</html>
