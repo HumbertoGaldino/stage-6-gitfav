@@ -7,26 +7,19 @@ export class Favorites {
   }
 
   load() {
-    this.entries = [
-      {
-        login: "humbertogaldino",
-        name: "Humberto Galdino",
-        public_repos: "60",
-        followers: "47",
-      },
-      {
-        login: "maykbrito",
-        name: "Mayk Brito",
-        public_repos: "76",
-        followers: "12000",
-      },
-      {
-        login: "diego3g",
-        name: "Diego Fernandes",
-        public_repos: "76",
-        followers: "12000",
-      },
-    ];
+    this.entries = JSON.parse(localStorage.getItem("@github-favorites:")) || [];
+
+    console.log(this.entries);
+  }
+
+  delete(user) {
+    // Higher-order functions
+    const filteredEntries = this.entries.filter(
+      (entry) => entry.login !== user.login
+    );
+
+    this.entries = filteredEntries;
+    this.update();
   }
 }
 
@@ -61,6 +54,17 @@ export class FavoritesView extends Favorites {
       row.querySelector(".repositories").textContent = user.public_repos;
 
       row.querySelector(".followers").textContent = user.followers;
+
+      // utiliza-se onclick() quando não será utilizado,
+      // em nenhum outro momento da aplicação o evento
+      // de click para essa tag selecionada
+      row.querySelector(".remove").onclick = () => {
+        const isOk = confirm("Tem certeza que deseja deletar essa linha?");
+
+        if (isOk) {
+          this.delete(user);
+        }
+      };
 
       // .append() é uma funcionalidade da DOM
       // que recebe como parâmetro o elemento HTML
