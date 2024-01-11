@@ -30,6 +30,12 @@ export class Favorites {
     console.log(this.entries);
   }
 
+  async add(username) {
+    const user = await GithubUser.search(username);
+
+    console.log(user);
+  }
+
   delete(user) {
     // Higher-order functions
     const filteredEntries = this.entries.filter(
@@ -49,6 +55,17 @@ export class FavoritesView extends Favorites {
     this.tbody = this.root.querySelector("table tbody");
 
     this.update();
+    this.onadd();
+  }
+
+  onadd() {
+    const addButton = this.root.querySelector(".search button");
+
+    addButton.onclick = () => {
+      const { value } = this.root.querySelector(".search input");
+
+      this.add(value);
+    };
   }
 
   update() {
